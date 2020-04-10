@@ -1,5 +1,5 @@
-import requests, random, os, discord, time, traceback, urllib.request, threading, subprocess, textwrap, pandas as pd
-# import wget, random
+import random, os, discord, time, traceback, urllib.request, threading, subprocess, textwrap, pandas as pd
+# import wget, requests
 
 from dotenv import load_dotenv
 from discord.ext import commands
@@ -7,10 +7,12 @@ from datetime import datetime #, timedelta
 # from tabulate import tabulate
 from dateutil.parser import parse as parsedate
 
+#--------------------------------------------------------DOWNLOAD DATA FILE ON START--------------------------------------------------------
+
 url = 'https://covid.ourworldindata.org/data/ecdc/full_data.csv'
 urllib.request.urlretrieve(url, 'full_data.csv')
 
-#----------------------------------------------------------DISCORD CONFIGURATION----------------------------------------------------------
+#-----------------------------------------------------------DISCORD CONFIGURATION-----------------------------------------------------------
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -19,7 +21,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 
 @bot.event
 async def on_ready():
-  print(f'{bot.user.name} dołączył do Wiecznej Sztamy!')
+  print(f'{bot.user.name} dołączył do serwera!')
 
 #-----------------------------------------------------------------FUNCTIONS-----------------------------------------------------------------
 
