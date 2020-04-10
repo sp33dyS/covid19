@@ -1,7 +1,5 @@
 import requests, random, os, discord, time, traceback, urllib.request, threading, subprocess, textwrap, pandas as pd
-"""
-import wget, random
-"""
+# import wget, random
 
 from dotenv import load_dotenv
 from discord.ext import commands
@@ -17,13 +15,11 @@ urllib.request.urlretrieve(url, 'full_data.csv')
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
-"""
-client = discord.Client()
+# client = discord.Client()
 
 @bot.event
 async def on_ready():
   print(f'{bot.user.name} dołączył do Wiecznej Sztamy!')
-"""
 
 #-----------------------------------------------------------------FUNCTIONS-----------------------------------------------------------------
 
@@ -36,29 +32,25 @@ def every(delay, task):
       task()
     except Exception:
       traceback.print_exc()
-"""
       # in production code you might want to have this instead of course:
       # logger.exception("Problem while executing repetitive task.")
     # skip tasks if we are behind schedule:
     # next_time += (time.time() - next_time) // delay * delay + delay
-"""
 
 # Downloading of data file
 def download():
   url = 'https://covid.ourworldindata.org/data/ecdc/full_data.csv'
-  url_time = requests.head(url).headers['last-modified']
-  url_date = parsedate(url_time)
-  file_time = datetime.datetime.fromtimestamp(os.path.getmtime('full_data.csv'))
-  if url_date > file_time:
-      urllib.request.urlretrieve(url, 'full_data.csv')
+#   url_time = requests.head(url).headers['last-modified']
+#   url_date = parsedate(url_time)
+#   file_time = datetime.datetime.fromtimestamp(os.path.getmtime('full_data.csv'))
+#   if url_date > file_time:
+  urllib.request.urlretrieve(url, 'full_data.csv')
 
 threading.Thread(target=lambda: every(7200, download)).start()
 
 # Downloading of data file in different way
-"""
-file_url = 'https://covid.ourworldindata.org/data/ecdc/full_data.csv'
-file_name = wget.download(file_url)
-"""
+# file_url = 'https://covid.ourworldindata.org/data/ecdc/full_data.csv'
+# file_name = wget.download(file_url)
 
 # File's last modifictaion date
 def modification_date(filename):
@@ -117,12 +109,10 @@ async def cov(ctx, kraj: str):
   embed.add_field(name="Liczba:", value="{}".format(covids.loc[covids['location'] == kraj]['total_cases'].values), inline=True)     # .to_string()``
   embed.add_field(name="Total:", value="{}".format(covids['total_cases'].sum()), inline=True)     # .to_string()``
   await ctx.send(embed=embed)
-"""
-  embed.set_footer(text="")
-  await ctx.send(emoji)
-  print(ctx.message.id)
-  await mesg.pin()
-"""
+#   embed.set_footer(text="")
+#   await ctx.send(emoji)
+#   print(ctx.message.id)
+#   await mesg.pin()
 
 @bot.command(name='new-cases', help='Wyświetla nowe przypadki z ostatniego dnia')
 async def cov2(ctx, kraj: str):
@@ -143,7 +133,5 @@ async def cov3(ctx, kraj: str):
   await ctx.send(embed=embed)
 
 bot.run(TOKEN)
-"""
-if input(KeyboardInterrupt):
-  subprocess.run(['pkill', '-f', 'cov.py'])
-"""
+# if input(KeyboardInterrupt):
+#   subprocess.run(['pkill', '-f', 'cov.py'])
