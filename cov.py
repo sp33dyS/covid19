@@ -48,7 +48,7 @@ def download():
 #   if url_date > file_time:
   urllib.request.urlretrieve(url, 'full_data.csv')
 
-threading.Thread(target=lambda: every(7200, download)).start()
+threading.Thread(target=lambda: every(43200, download)).start()
 
 # Downloading of data file in different way
 # file_url = 'https://covid.ourworldindata.org/data/ecdc/full_data.csv'
