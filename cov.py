@@ -1,5 +1,5 @@
 import random, os, discord, time, traceback, urllib.request, threading, subprocess, textwrap, pandas as pd
-import wget, requests
+# import wget, requests
 
 from dotenv import load_dotenv
 from discord.ext import commands
