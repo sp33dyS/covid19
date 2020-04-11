@@ -4,7 +4,6 @@ import random, os, discord, time, traceback, urllib.request, threading, subproce
 from dotenv import load_dotenv
 from discord.ext import commands
 from datetime import datetime #, timedelta
-# from tabulate import tabulate
 from dateutil.parser import parse as parsedate
 
 #--------------------------------------------------------DOWNLOAD DATA FILE ON START--------------------------------------------------------
