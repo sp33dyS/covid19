@@ -16,7 +16,7 @@ urllib.request.urlretrieve(url, 'full_data.csv')
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
-client = discord.Client()
+# client = discord.Client()
 
 @bot.event
 async def on_ready():
